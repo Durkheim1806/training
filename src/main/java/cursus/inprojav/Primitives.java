@@ -4,7 +4,7 @@ public class Primitives {
 
     public static void main(String[] args) {
 
-        byte temperature = 18;
+        byte temperature = 200;
         short maxtemperature = 45;
         int mintemperature = -1_000;
         long windpower = 34L;
