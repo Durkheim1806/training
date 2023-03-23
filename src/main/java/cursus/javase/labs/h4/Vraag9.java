@@ -1,2 +1,55 @@
-package cursus.javase.labs.h4;public class Vraag9 {
+package cursus.javase.labs.h4;
+
+import java.util.Scanner;
+
+public class Vraag9 {
+    static void hourglass(int n) throws EvenNumberExceptionUnchecked, EvenNumberException {
+        if (n % 2 != 0) {
+            String[][] matrix = new String[n][n];
+            for (int i = 0; i <= n; i++) {
+                for (int j = 0; j <= n; j++) {
+                    if (i == 0) {
+                        System.out.print("*");
+                    } else if (i == n) {
+                        System.out.print("*");
+                    } else if (i == j) {
+                        System.out.print("*");
+                    } else if (i + j == n) {
+                        System.out.print("*");
+                    } else {
+                        System.out.print(" ");
+                    }
+                }
+                System.out.println();
+            }
+        } else {
+            throw new EvenNumberExceptionUnchecked(null, null);
+        }
+    }
+
+
+    public static void main(String[] args) {
+        boolean klaar = false;
+        int pogingen = 0;
+        while (klaar == false) {
+            if (pogingen == 3){
+                System.out.println("3 pogingen dus we stoppen ermee.");
+                break;
+            }
+            try {
+                ++pogingen;
+                Scanner ScanDing = new Scanner(System.in);
+                System.out.println("Geef een nummer: ");
+                int input = ScanDing.nextInt();
+                hourglass(input);
+                klaar = true;
+            } catch (EvenNumberExceptionUnchecked e) {
+                System.out.println(e);
+            } catch (IllegalArgumentException e) {
+                System.out.println(e);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+    }
 }
