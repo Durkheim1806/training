@@ -1,2 +1,4 @@
-package cursus.javase.labs.h5;public class Vraag4 {
+package cursus.javase.labs.h5;
+
+public class Vraag4 {
 }
