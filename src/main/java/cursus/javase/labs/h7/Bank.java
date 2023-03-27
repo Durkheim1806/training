@@ -7,6 +7,16 @@ import java.util.List;
 
 public class Bank {
 
+    private String name;
+    private List<BankAccount> bankAccounts = new ArrayList<>();
+    public Bank(String n){
+        setName(n);
+    }
+    @Override
+    public String toString(){
+        return getName();
+    }
+
     public static void withdraw(BankAccount ba, BigDecimal a){
         try {
             ba.setBalance(ba.getBalance().subtract(a));
@@ -21,27 +31,18 @@ public class Bank {
         withdraw(baFrom, a);
         deposit(baTo, a);
     }
+    public void addBankAccount(BankAccount ba){
+        this.bankAccounts.add(ba);
+        ba.setBank(this);
+    }
 
-    public static void main(String[] args) {
-        BankAccount ba1 = new BankAccount(00001, new BigDecimal("1000"), new BigDecimal("2"));
-        BankAccount ba2 = new BankAccount(00002, new BigDecimal("1000"), new BigDecimal("2"));
-        BankAccount ba3 = new BankAccount(00003, new BigDecimal("1000"), new BigDecimal("2"));
-        BankAccount ba4 = new BankAccount(00004, new BigDecimal("1000"), new BigDecimal("2"));
-        BankAccount ba5 = new BankAccount(00005, new BigDecimal("1000"), new BigDecimal("2"));
-        System.out.println(ba1.getBalance());
-        withdraw(ba1, new BigDecimal("10"));
-        System.out.println(ba1.getBalance());
-        deposit(ba2, new BigDecimal("50"));
-        System.out.println(ba2.getBalance());
-        System.out.println(ba1.calculateInterestForOneYear());
-        withdraw(ba3, new BigDecimal("2000"));
-        transfer(ba4, ba5, new BigDecimal("100"));
-        System.out.println(ba4.getBalance());
-        System.out.println(ba5.getBalance());
-        List<BankAccount> BankAccounts = Arrays.asList(ba1, ba2, ba3, ba4, ba5);
-        for(BankAccount ba : BankAccounts){
-            System.out.println(ba.getAccountNumber());
-            System.out.println(ba.calculateInterestForOneYear());
-        }
+    public void setBankAccounts(List<BankAccount> bankAccounts) {
+        this.bankAccounts = bankAccounts;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
     }
 }

@@ -7,6 +7,7 @@ public class BankAccount {
     private int accountNumber;
     private BigDecimal balance;
     private BigDecimal interest;
+    private Bank bank;
 
     public BankAccount(int a, BigDecimal b, BigDecimal i){
         setAccountNumber(a);
@@ -41,5 +42,12 @@ public class BankAccount {
 
     public int getAccountNumber() {
         return accountNumber;
+    }
+    public void setBank(Bank bank) {
+        this.bank = bank;
+    }
+
+    public Bank getBank() {
+        return bank;
     }
 }
