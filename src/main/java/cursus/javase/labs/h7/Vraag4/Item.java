@@ -7,22 +7,34 @@ public class Item {
     private BigDecimal price;
     private String description;
 
-    public Item(int i, BigDecimal p, String d){
+    public Item(int i, BigDecimal p, String d) {
         setId(i);
         setPrice(p);
         setDescription(d);
     }
+
     @Override
-    public String toString(){
-        return this.description + " " + this.price;
+    public String toString() {
+        return this.id + "\t" + this.description + "\t" + this.price;
     }
+
+    public void printItem() {
+        System.out.printf("%10.10s %20.20s %10.10s", this.id, this.description, this.price);
+    }
+
 
     public void setId(int id) {
         this.id = id;
     }
+
+    public int getId() {
+        return id;
+    }
+
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
+
     public void setDescription(String description) {
         this.description = description;
     }

@@ -13,11 +13,15 @@ public class Catalog {
     }
 
     public void browse() {
-        List<Item> list = itemsOfCatalog;
-        for (Item items : list) {
-            System.out.println(items);
+//        List<Item> list = itemsOfCatalog;
+        System.out.printf("%10.10s %20.20s %10.10s", "id", "description", "price");
+        System.out.println();
+        for (Item items : itemsOfCatalog) {
+            items.printItem();
+            System.out.println();
         }
     }
+
 
     public void setItemsOfCatalog(List<Item> itemsOfCatalog) {
         this.itemsOfCatalog = itemsOfCatalog;
@@ -25,6 +29,10 @@ public class Catalog {
 
     public void setYear(int year) {
         this.year = year;
+    }
+
+    public int getYear() {
+        return year;
     }
 
     public List<Item> getItemsOfCatalog() {
