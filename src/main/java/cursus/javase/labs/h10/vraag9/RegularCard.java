@@ -7,6 +7,11 @@ public class RegularCard extends Card {
     }
 
     @Override
+    public void setDiscount(int discount) {
+        throw new IllegalArgumentException("Regular card can't have discount.");
+    }
+
+    @Override
     public boolean pay(int amount) {
         if (getCredit() - (double) amount >= 0) {
             setCredit(getCredit() - (double) amount);
@@ -15,6 +20,5 @@ public class RegularCard extends Card {
             return false;
         }
         return true;
-
     }
 }

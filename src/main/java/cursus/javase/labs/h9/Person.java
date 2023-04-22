@@ -12,6 +12,14 @@ public class Person {
     public static String universalRights = "All humans are created equal.";
     private static int MAXIMUM_AGE = 130;
 
+    public Person() {
+        this("Dummy");
+    }
+
+    public Person(String n) {
+        setName(n);
+    }
+
     public Person(String n, int a) {
         setName(n);
         setAge(a);

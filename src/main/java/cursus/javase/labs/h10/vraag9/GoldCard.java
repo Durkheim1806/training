@@ -8,17 +8,28 @@ public class GoldCard extends Card {
         super(cardId, name, address, city, credit);
     }
 
+    public GoldCard(int cardId, String name, String address, String city, double credit, int discount) {
+        super(cardId, name, address, city, credit);
+        this.discount = discount;
+    }
+
     @Override
     public boolean pay(int amount) {
-        setCredit(getCredit() - (double) amount);
+        double discount = 1.00 - ((double) getDiscount() / 100.00);
+        setCredit(getCredit() - ((double) amount * discount));
         return true;
     }
 
     public void setDiscount(int discount) {
-        if (discount > 0 && discount > 31) {
+        if (discount > 0 && discount <= 30) {
             this.discount = discount;
         } else {
             throw new IllegalArgumentException("invalid discount");
         }
     }
+
+    public int getDiscount() {
+        return discount;
+    }
+
 }
