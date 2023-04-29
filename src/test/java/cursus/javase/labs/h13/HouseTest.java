@@ -11,6 +11,9 @@ class HouseTest {
 
         House<Person> hp = new House<>();
         House<Android> ha = new House<>();
+        Person piet = new Person("Piet", 35);
+        hp.setHuman(piet);
+        System.out.println(hp);
 //        House<String> hs = new House<>(); // deze gaat niet
     }
 

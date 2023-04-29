@@ -1,5 +1,6 @@
-package cursus.javase.labs.h11;
+package cursus.javase.labs.h14;
 
+import cursus.javase.labs.h11.Human;
 import cursus.javase.labs.h7.Gender;
 import cursus.javase.labs.h7.PersonDiedException;
 
@@ -7,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Person extends Human {
+public class Person extends Human implements Comparable<Person> {
 
     private Gender gender;
     private String name;
@@ -28,6 +29,11 @@ public class Person extends Human {
     public Person(String n, int a, Gender g) {
         this(n, a);
         setGender(g);
+    }
+
+    @Override
+    public int compareTo(Person o) {
+        return this.age - o.age;
     }
 
     private class HistoryRecord {
@@ -85,7 +91,15 @@ public class Person extends Human {
 
     @Override
     public int hashCode() {
-        return Objects.hash(gender, name, age);
+        return 1;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return age == person.age && gender == person.gender && Objects.equals(name, person.name);
     }
 
     public Gender getGender() {

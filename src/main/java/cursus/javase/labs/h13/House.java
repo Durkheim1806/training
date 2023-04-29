@@ -8,9 +8,11 @@ public class House<T extends Human> {
 
     @Override
     public String toString() {
-        return "House{" +
-                "human=" + human +
-                '}';
+        return "This house is owned by [" + human + "] and it says [" + human.greet() + "]";
+    }
+
+    public void setHuman(T human) {
+        this.human = human;
     }
 }
 

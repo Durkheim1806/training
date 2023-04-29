@@ -10,7 +10,7 @@ public class GoldCard extends Card {
 
     public GoldCard(int cardId, String name, String address, String city, double credit, int discount) {
         super(cardId, name, address, city, credit);
-        this.discount = discount;
+        setDiscount(discount);
     }
 
     @Override
