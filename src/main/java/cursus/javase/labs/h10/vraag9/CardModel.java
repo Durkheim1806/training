@@ -5,8 +5,9 @@ import java.util.List;
 
 public class CardModel extends AbstractTableModel {
 
-    List<Card> cardList;
-    String headerList[] = new String[]{"CardID", "Name", "Credit", "Discount"};
+    private List<Card> cardList;
+    private String headerList[] = new String[]{"CardID", "Name", "Credit", "Discount"};
+
 
     public CardModel(List list) {
         cardList = list;

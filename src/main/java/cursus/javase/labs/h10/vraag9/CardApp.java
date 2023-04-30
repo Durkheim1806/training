@@ -1,11 +1,13 @@
 package cursus.javase.labs.h10.vraag9;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CardApp {
 
     public static void main(String[] args) {
+
 
         Card cardGerda = new RegularCard(1235, "Gerda", "-", "-", 1000.0);
         Card cardDonald = new GoldCard(1236, "Donald", "-", "-", 7000.0, 25);
@@ -18,13 +20,14 @@ public class CardApp {
         listOfCards.add(cardEdward);
         listOfCards.add(cardPiet);
         listOfCards.add(cardAnna);
-        CardView view = new CardView();
-        CardModel model = new CardModel(listOfCards);
-        view.showCardTable(model);
-        CardController controller = new CardController(view, model);
 
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
 
+                CardModel model = new CardModel(listOfCards);
+                CardView view = new CardView(model);
+                CardController controller = new CardController(view, model);
+            }
+        });
     }
-
-
 }

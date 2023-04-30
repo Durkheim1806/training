@@ -24,7 +24,7 @@ public class CardController {
                 int cardID = view.getCardID();
                 int amount = view.getAmount();
                 model.pay(cardID, amount);
-                view.showCardTable(model);
+                model.fireTableDataChanged();
             } catch (NumberFormatException ex) {
 
             }

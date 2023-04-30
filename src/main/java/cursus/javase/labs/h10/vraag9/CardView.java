@@ -13,7 +13,8 @@ public class CardView {
     private JLabel inputCard;
     private JLabel inputAmount;
 
-    public CardView() {
+
+    public CardView(CardModel model) {
         JPanel root = this.getRootPanel();
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -21,24 +22,22 @@ public class CardView {
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        showTable.setModel(model);
     }
+
 
     public JPanel getRootPanel() {
         return rootPanel;
     }
 
 
-    void showCardTable(CardModel model) {
-        showTable.setModel(model);
-    }
-
-    void updateCardTable(ActionListener listenForPaymentButton) {
+    public void updateCardTable(ActionListener listenForPaymentButton) {
         makePaymentButton.addActionListener(listenForPaymentButton);
     }
 
-//    void displayErrorMessage(String errorMessage) {
-//        JOptionPane.showMessageDialog(this, errorMessage);
-//    }
+/*    void displayErrorMessage(String errorMessage) {
+        JOptionPane.showMessageDialog(this, errorMessage);
+    }*/
 
 
     public int getCardID() {
