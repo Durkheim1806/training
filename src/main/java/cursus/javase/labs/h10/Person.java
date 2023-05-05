@@ -3,15 +3,26 @@ package cursus.javase.labs.h10;
 import cursus.javase.labs.h12.MyAnnotation2;
 import cursus.javase.labs.h7.Gender;
 import cursus.javase.labs.h7.PersonDiedException;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
 import java.util.Objects;
 
+@Entity
 public class Person extends Human {
+
+    @Id
+    @GeneratedValue
+    private int id;
     private Gender gender;
     private String name;
     private int age;
     public static String universalRights = "All humans are created equal.";
     private static int MAXIMUM_AGE = 130;
+
+    public Person() {
+    }
 
     public Person(String n, int a) {
         setName(n);
