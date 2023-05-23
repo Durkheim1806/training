@@ -36,7 +36,7 @@ public class PersonApp {
         Person jan = new Person("Jan", 20, MALE);
         dao.insert(jan);
 
-        Person p = dao.select(1);
+        Person p = dao.select(2);
         log.info(p.toString());
     }
 

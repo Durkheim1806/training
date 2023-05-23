@@ -5,6 +5,8 @@ import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 
+import java.util.List;
+
 @Dependent
 public class PersonDAO {
 
@@ -24,9 +26,8 @@ public class PersonDAO {
             em.persist(person);
             transaction.commit();
         } catch (Exception e) {
-
+            transaction.rollback();
         }
-
 
     }
 
@@ -44,4 +45,17 @@ public class PersonDAO {
         return p;
     }
 
+    public List<Person> findAll() {
+
+        return em.createQuery("select p from Person p", Person.class).getResultList();
+    }
+
+/*    public List<Adds> findAllAddsOfPerson(String name){
+        return em.createQuery("""
+                                """,
+                        Adds.class)
+                .setParameter()
+                .getResultList();
+
+    }*/
 }

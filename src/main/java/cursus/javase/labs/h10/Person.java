@@ -3,13 +3,12 @@ package cursus.javase.labs.h10;
 import cursus.javase.labs.h12.MyAnnotation2;
 import cursus.javase.labs.h7.Gender;
 import cursus.javase.labs.h7.PersonDiedException;
-import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 import java.util.Objects;
 
-@Entity
+//@Entity
 public class Person extends Human {
 
     @Id

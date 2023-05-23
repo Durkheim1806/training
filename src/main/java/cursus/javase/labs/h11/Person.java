@@ -2,12 +2,22 @@ package cursus.javase.labs.h11;
 
 import cursus.javase.labs.h7.Gender;
 import cursus.javase.labs.h7.PersonDiedException;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
+@Entity
 public class Person extends Human {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    public Person() {
+    }
 
     private Gender gender;
     private String name;
@@ -15,9 +25,9 @@ public class Person extends Human {
     public static String universalRights = "All humans are created equal.";
     private static int MAXIMUM_AGE = 130;
 
-    private List<HistoryRecord> listHistoryRecords = new ArrayList<>();
+//    private List<HistoryRecord> listHistoryRecords = new ArrayList<>();
 
-    private int counter = 0;
+//    private int counter = 0;
 
     public Person(String n, int a) {
         setName(n);
@@ -30,7 +40,7 @@ public class Person extends Human {
         setGender(g);
     }
 
-    private class HistoryRecord {
+/*    private class HistoryRecord {
         public HistoryRecord(String description) {
             this.description = description;
         }
@@ -55,7 +65,7 @@ public class Person extends Human {
         for (HistoryRecord HistoryRecords : listHistoryRecords) {
             System.out.println(HistoryRecords);
         }
-    }
+    }*/
 
     @Override
     public String greet() {
@@ -112,7 +122,7 @@ public class Person extends Human {
         return age;
     }
 
-    public List<HistoryRecord> getListHistoryRecords() {
-        return listHistoryRecords;
-    }
+//    public List<HistoryRecord> getListHistoryRecords() {
+//        return listHistoryRecords;
+//    }
 }
