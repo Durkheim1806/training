@@ -4,7 +4,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {LawsAndPrinciplesComponent} from './components/laws-and-principles/laws-and-principles.component';
-import {NavbarSearchComponent} from './components/navbar-search/navbar-search.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
@@ -15,7 +14,6 @@ import {MaintenanceComponent} from './components/maintenance/maintenance.compone
   declarations: [
     AppComponent,
     LawsAndPrinciplesComponent,
-    NavbarSearchComponent,
     MaintenanceComponent
   ],
   imports: [

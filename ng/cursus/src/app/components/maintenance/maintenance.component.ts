@@ -9,10 +9,11 @@ import {QuotesService} from "../../services/quotes.service";
 })
 export class MaintenanceComponent {
 
-  quoteTitle = '';
-  quoteText = '';
-  quotes: Quote[] = [];
-  quote: Quote = {} as Quote;
+  quoteTitle = ''
+  quoteText = ''
+  quoteLink = ''
+  quotes: Quote[] = []
+  quote: Quote = {} as Quote
 
   constructor(private quotesService: QuotesService) {
     this.quotesService.getAll().subscribe((quotes) => this.quotes = quotes)
@@ -21,8 +22,29 @@ export class MaintenanceComponent {
   addQuote() {
     this.quote.title = this.quoteTitle
     this.quote.text = this.quoteText
+    this.quote.link = this.quoteLink
+    this.quoteTitle = ''
+    this.quoteText = ''
+    this.quoteLink = ''
     console.log('add quote', this.quoteTitle)
-    this.quotesService.addQuote(this.quote).subscribe(quote => this.quotes.push(quote))
+    this.quotesService.addQuote(this.quote).subscribe(quote => {
+      this.quotes.push(quote);
+    })
   }
 
+
+  deleteQuote(quoteId: number) {
+    console.log('quote id is:', quoteId)
+    this.quotesService.deleteQuote(quoteId).subscribe((result) => {
+      console.log('principle deleted')
+    }, (error) => {
+      console.log(error)
+    })
+    this.quotesService.getAll().subscribe((quotes) => this.quotes = quotes) // nog eens navragen aan Bram of dit wel de beste oplossing is om de ngFor lijst te syncen.
+  }
+
+
+  onBlur() {
+    this.quote = {} as Quote
+  }
 }

@@ -3,4 +3,5 @@ export interface Quote {
   text: string;
   link: string;
   picture: string;
+  id: number;
 }

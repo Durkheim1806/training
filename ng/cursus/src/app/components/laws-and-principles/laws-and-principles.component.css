@@ -1,3 +1,8 @@
 .expensive {
   color: red;
 }
+
+.top-buffer {
+  margin-top: 20px;
+}
+

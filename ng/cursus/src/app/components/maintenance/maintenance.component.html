@@ -1,31 +1,44 @@
-<p>All quotes</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Age</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let quote of quotes">
-      <td>{{quote.title}}</td>
-      <td>{{quote.text}}</td>
-      <td>{{quote.link}}</td>
-    </tr>
-  </tbody>
-</table>
-
-<div>
-  <p>Add quote</p>
-  <form (ngSubmit)="addQuote()" novalidate #quoteForm="ngForm">
-    <label for="inputQuoteTitle">Quote title:</label>
-    <input type="text" id="inputQuoteTitle" [(ngModel)]="quoteTitle" name="quoteTitle"/>
-    <label for="inputQuoteText">Quote title:</label>
-    <input type="text" id="inputQuoteText" [(ngModel)]="quoteText" name="quoteText"/>
-    <button type="submit">Add</button>
-  </form>
+<div class="container">
+  <h1>All quotes</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Principle</th>
+        <th scope="col">Text</th>
+        <th scope="col">Link</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let quote of quotes">
+        <td class="col-md-2">{{quote.title}}</td>
+        <td class="col-md-7">{{quote.text}}</td>
+        <td class="col-md-2"><a href="{{quote.link}}">{{quote.link}}</a></td>
+        <td class="col-md-1">
+          <button (click)="deleteQuote(quote.id)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash"
+                 viewBox="0 0 16 16">
+              <path
+                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
+              <path
+                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
+            </svg>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <h1>Add quote</h1>
+    <form (ngSubmit)="addQuote()" novalidate>
+      <label for="inputQuoteTitle">Quote title:</label>
+      <input type="text" id="inputQuoteTitle" [(ngModel)]="quoteTitle" name="quoteTitle"/>
+      <label for="inputQuoteText">Quote title:</label>
+      <input type="text" id="inputQuoteText" [(ngModel)]="quoteText" name="quoteText"/>
+      <label for="inputQuoteLink">Quote title:</label>
+      <input type="text" id="inputQuoteLink" [(ngModel)]="quoteLink" name="quoteLink"/>
+      <button type="submit">Add</button>
+    </form>
+  </div>
 </div>
-
 

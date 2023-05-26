@@ -9,25 +9,32 @@ import {Quote} from "../model/Quote";
 })
 export class LawsAndPrinciplesComponent {
 
-  showText: string = 'The \"Peter Principle\"';
-  showPicture: string = 'assets/peter.jpeg';
-  iteratie: number = 0;
 
-  quotes: Quote[] = [];
-
-  quote: Quote = {} as Quote;
+  showTitle: string = ''
+  showPicture: string = ''
+  showLink: string = ''
+  showText: string = ''
+  quotes: Quote[] = []
+  quote: Quote = {} as Quote
+  iteratie: number = 0
+  index: number = 0
 
 
   constructor(private quotesService: QuotesService) {
-    this.quotesService.getAll().subscribe((quotes) => this.quotes = quotes)
+    this.quotesService.getAll().subscribe((quotes) => {
+      this.quotes = quotes
+      this.switchPrinciple()
+    });
   }
 
 
   switchPrinciple() {
-    let index = this.iteratie % this.quotes.length;
-    this.showText = this.quotes[index].title;
-    this.showPicture = this.quotes[index].picture;
-    this.iteratie++;
+    this.index = this.iteratie % this.quotes.length
+    this.showTitle = this.quotes[this.index].title
+    this.showText = this.quotes[this.index].text
+    this.showPicture = this.quotes[this.index].picture
+    this.showLink = this.quotes[this.index].link
+    this.iteratie++
   }
 
 
