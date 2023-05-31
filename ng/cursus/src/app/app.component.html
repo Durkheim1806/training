@@ -1,6 +1,5 @@
-<app-login></app-login>
-<div *ngIf="isLoggedIn" class="container">
-  <nav class="navbar navbar-expand-lg navbar-light">
+<div class="container">
+  <nav *ngIf="isLoggedIn" class="navbar navbar-expand-lg navbar-light">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
@@ -20,11 +19,11 @@
         </li>
       </ul>
     </div>
-    <button (click)="logout()" routerLink="/">Logout</button>
-    <div>
-      <input type="text" placeholder="Search">
-    </div>
+    <ul class="navbar-nav ml-auto">
+      <button (click)="logout()">Logout</button>
+      <app-search></app-search>
+    </ul>
   </nav>
 </div>
-<router-outlet *ngIf="isLoggedIn"></router-outlet>
+<router-outlet></router-outlet>
 

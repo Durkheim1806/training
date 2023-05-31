@@ -13,6 +13,7 @@ import {
 } from './components/laws-and-principles-details/laws-and-principles-details.component';
 import {LoginComponent} from './components/login/login.component';
 import {AuthGuard} from "./auth/auth-guard";
+import {SearchComponent} from './components/search/search.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {AuthGuard} from "./auth/auth-guard";
     LawsAndPrinciplesComponent,
     MaintenanceComponent,
     LawsAndPrinciplesDetailsComponent,
-    LoginComponent
+    LoginComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +35,7 @@ import {AuthGuard} from "./auth/auth-guard";
       {path: 'laws-and-principles', component: LawsAndPrinciplesComponent, canActivate: [AuthGuard]},
       {path: 'maintenance', component: MaintenanceComponent, canActivate: [AuthGuard]},
       {path: 'quotes/:id', component: LawsAndPrinciplesDetailsComponent, canActivate: [AuthGuard]},
+      {path: '**', redirectTo: 'login'}
     ])
   ],
   providers: [

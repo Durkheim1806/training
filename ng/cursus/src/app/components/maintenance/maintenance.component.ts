@@ -47,7 +47,7 @@ export class MaintenanceComponent {
         }
       }
     );
-    this.quotesService.getAll().subscribe((quotes) => this.quotes = quotes) // nog eens navragen aan Bram of dit wel de beste oplossing is om de ngFor lijst te syncen.
+    this.quotesService.getAll().subscribe((quotes) => this.quotes = quotes) // nog eens checken dit, zelfde doen als addQuote beter?
   }
 
 
