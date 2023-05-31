@@ -12,8 +12,10 @@
     <tbody>
       <tr *ngFor="let quote of quotes">
         <td class="col-md-2">{{quote.title}}</td>
-        <td class="col-md-7">{{quote.text}}</td>
+        <td class="col-md-6">{{quote.text}}</td>
         <td class="col-md-2"><a href="{{quote.link}}">{{quote.link}}</a></td>
+        <td class="col-md-1">
+          <button><a routerLink="/quotes/{{quote.id}}" routerLinkActive="active">info</a></button>
         <td class="col-md-1">
           <button (click)="deleteQuote(quote.id)">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash"
@@ -30,14 +32,24 @@
   </table>
   <div>
     <h1>Add quote</h1>
-    <form (ngSubmit)="addQuote()" novalidate>
-      <label for="inputQuoteTitle">Quote title:</label>
-      <input type="text" id="inputQuoteTitle" [(ngModel)]="quoteTitle" name="quoteTitle"/>
-      <label for="inputQuoteText">Quote title:</label>
-      <input type="text" id="inputQuoteText" [(ngModel)]="quoteText" name="quoteText"/>
-      <label for="inputQuoteLink">Quote title:</label>
-      <input type="text" id="inputQuoteLink" [(ngModel)]="quoteLink" name="quoteLink"/>
-      <button type="submit">Add</button>
+    <form (ngSubmit)="addQuote(quoteForm)" novalidate #quoteForm="ngForm">
+      <label for="inputQuoteTitle">Quote title:<p *ngIf="quoteTitle1.untouched">This field is untouched.</p>
+      </label>
+      <p><input
+        type="text"
+        id="inputQuoteTitle"
+        [(ngModel)]="quoteTitle"
+        name="quoteTitle"
+        #quoteTitle1="ngModel"
+        required
+      /></p> <!--ik had eerst de quoteTitle zonder een 1 erachter, maar dan crasht de hele app-->
+      <label for="inputQuoteText">Quote text:</label>
+      <p><input type="text" id="inputQuoteText" [(ngModel)]="quoteText" name="quoteText" required/></p>
+      <label for="inputQuoteLink">Quote link:</label>
+      <p><input type="text" id="inputQuoteLink" [(ngModel)]="quoteLink" name="quoteLink"
+                pattern="(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})"
+                required/></p>
+      <button type="submit" [disabled]="quoteForm.invalid">Add</button>
     </form>
   </div>
 </div>

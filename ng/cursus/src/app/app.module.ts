@@ -8,13 +8,20 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
 import {MaintenanceComponent} from './components/maintenance/maintenance.component';
+import {
+  LawsAndPrinciplesDetailsComponent
+} from './components/laws-and-principles-details/laws-and-principles-details.component';
+import {LoginComponent} from './components/login/login.component';
+import {AuthGuard} from "./auth/auth-guard";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LawsAndPrinciplesComponent,
-    MaintenanceComponent
+    MaintenanceComponent,
+    LawsAndPrinciplesDetailsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -22,12 +29,18 @@ import {MaintenanceComponent} from './components/maintenance/maintenance.compone
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {path: 'laws-and-principles', component: LawsAndPrinciplesComponent},
-      {path: 'maintenance', component: MaintenanceComponent},
+      {path: 'login', component: LoginComponent},
+      {path: 'laws-and-principles', component: LawsAndPrinciplesComponent, canActivate: [AuthGuard]},
+      {path: 'maintenance', component: MaintenanceComponent, canActivate: [AuthGuard]},
+      {path: 'quotes/:id', component: LawsAndPrinciplesDetailsComponent, canActivate: [AuthGuard]},
     ])
   ],
-  providers: [],
+  providers: [
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
+
+
 }

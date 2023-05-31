@@ -19,7 +19,11 @@ export class QuotesService {
     return this.http.post<Quote>('http://localhost:3000/quotes', quote)
   }
 
-  deleteQuote(id: number) {
-    return this.http.delete(`http://localhost:3000/quotes/${id}`)
+  deleteQuote(id: number): Observable<Quote> {
+    return this.http.delete<Quote>(`http://localhost:3000/quotes/${id}`)
+  }
+
+  getQuote(id: string | null) {
+    return this.http.get<Quote>(`http://localhost:3000/quotes/${id}`)
   }
 }

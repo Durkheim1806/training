@@ -1,0 +1,10 @@
+<div *ngIf="isLoggedIn == false" class="container">
+  <h1>Login screen</h1>
+  <label>Username:<p></label>
+  <p><input type="text"></p>
+  <label>Password:<p></label>
+  <p><input type="text"></p>
+  <p>
+    <button (click)="login()" routerLink="/laws-and-principles" routerLinkActive="true">Login</button>
+  </p>
+</div>
