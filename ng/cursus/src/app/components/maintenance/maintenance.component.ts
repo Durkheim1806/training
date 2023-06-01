@@ -40,7 +40,7 @@ export class MaintenanceComponent {
     console.log('quote id is:', quoteId)
     this.quotesService.deleteQuote(quoteId).subscribe({
         next: (result) => {
-          console.log('principle deleted')
+          console.log('quote added')
         },
         error: (error) => {
           console.log(error)
