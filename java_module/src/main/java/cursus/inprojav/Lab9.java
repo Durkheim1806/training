@@ -15,5 +15,6 @@ public class Lab9 {
         System.out.println(komtOvereenMetRoaldDahl);
         boolean komtOvereenMetrOaldDAHL = naam.equalsIgnoreCase("roald dahl");
         System.out.println(komtOvereenMetrOaldDAHL);
+        int i = 4;
     }
 }

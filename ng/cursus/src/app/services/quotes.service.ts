@@ -12,7 +12,10 @@ export class QuotesService {
   }
 
   getAll(): Observable<Quote[]> {
-    return this.http.get<Quote[]>('http://localhost:3000/quotes')
+    /*
+        return this.http.get<Quote[]>('http://localhost:3000/quotes')
+    */
+    return this.http.get<Quote[]>('http://localhost:9080/rest/api/quotes')
   }
 
   addQuote(quote: Quote): Observable<Quote> {

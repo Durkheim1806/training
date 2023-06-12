@@ -1,3 +1,5 @@
+package cursus;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -16,6 +18,5 @@ public class MyServlet extends HttpServlet {
         String q = req.getParameter("q");
         resp.getWriter().print("<html><body><h1>Hello world 2! " + q + "</h1></body></html>");
         resp.setStatus(200);
-        req.getRequestDispatcher("SecondServlet.jsp").forward(req, resp);
     }
 }

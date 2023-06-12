@@ -12,6 +12,8 @@
     <modules>
         <module>jakarta</module>
         <module>java_module</module>
+        <module>test_module</module>
+        <module>rest</module>
     </modules>
 
     <properties>

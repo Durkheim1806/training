@@ -29,5 +29,12 @@
 
     <build>
         <finalName>jakarta</finalName>
+        <plugins>
+            <plugin>
+                <groupId>io.openliberty.tools</groupId>
+                <artifactId>liberty-maven-plugin</artifactId>
+                <version>3.8</version>
+            </plugin>
+        </plugins>
     </build>
 </project>
